@@ -1,5 +1,5 @@
 // Schema for Recharge tables
-exports.getSchema = () => {
+export const getSchema = () => {
     return {
       schema: {
         charges: {

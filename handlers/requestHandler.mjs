@@ -1,20 +1,12 @@
-const axios = require('axios');
+import axios from 'axios';
 
 //3: HTTP call
-exports.handler = async (event, recharge_api_key, endpoint) => {
+export const handleRequest = async (event, recharge_api_key, endpoint) => {
 
   //1 API URL
   const baseUrl = `https://api.rechargeapps.com/${endpoint}?limit=250`;
 
   let result;
-
-  //3.1 Make sure the request is coming from Weld
-  checkAuth(event);
-
-  //3.2 If path is schema, return the schema to Weld
-
-  //3.3 Set potential URL parameters, e.g. an incremental pointer
-  // Not needed in this case
 
   //3.4 Call the API
   let url = event.body && JSON.parse(event.body).state?.nextUrl ? JSON.parse(event.body).state?.nextUrl : baseUrl;
