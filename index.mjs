@@ -11,5 +11,7 @@ export const handler = async (event) => {
 
   let endpoint = event.body && JSON.parse(event.body).name ? JSON.parse(event.body).name : null;
 
+  if(endpoint === null) return null;
+  
   return await handleRequest(event, process.env.RECHARGE_API_KEY, endpoint);
 };
